@@ -1,0 +1,69 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  addresses: [Address!]
+}
+
+type Address {
+  id: ID!
+  user: User!
+  street: String!
+  number: String!
+  neightborhood: String!
+  zip_code: String!
+  complement: String!
+  city: String!
+  uf: String!
+}
+
+type Query {
+  users: [User!]!
+  user(id: String!): User!
+  addresses: [Address!]!
+  address(id: String!): Address!
+}
+
+type Mutation {
+  createUser(data: CreateUserImput!): User!
+  updateUser(data: UpdateUserImput!, id: String!): User!
+  deleteUser(id: String!): Boolean!
+  createAddress(data: CreateAddresImput!): Address!
+  updateAddress(id: String!, data: UpdateAddresImput!): Address!
+  deleteAddress(id: String!): Boolean!
+}
+
+input CreateUserImput {
+  name: String!
+  email: String!
+}
+
+input UpdateUserImput {
+  name: String
+  email: String
+}
+
+input CreateAddresImput {
+  userId: String!
+  street: String!
+  number: String!
+  neightborhood: String!
+  zip_code: String!
+  complement: String
+  city: String!
+  uf: String!
+}
+
+input UpdateAddresImput {
+  street: String
+  number: String
+  neightborhood: String
+  zip_code: String
+  complement: String
+  city: String
+  uf: String
+}
